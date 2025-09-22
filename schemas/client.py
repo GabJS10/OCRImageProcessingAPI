@@ -3,7 +3,6 @@ from typing import Optional
 
 class Client(BaseModel):
     nombre: str
-    #cedula max 10 caracteres
     cedula: str = Field(..., max_length=10, min_length=8,description="Cedula de 10 digitos")
     lugar_cedula: str
     telefono: Optional[str] = None

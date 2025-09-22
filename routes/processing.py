@@ -54,7 +54,6 @@ async def upload(file: UploadFile = File(...)):
         """
 
         response = openai.chat.completions.create(
-            #modelo de chat equilibrado entre costo y capacidad
             model="gpt-4o-mini",
             messages=[
                     {"role": "system", "content": "Eres un asistente que extrae informacion personal de textos ruidosos."},
@@ -64,7 +63,6 @@ async def upload(file: UploadFile = File(...)):
         )
         text = response.choices[0].message.content
         
-         # Intentar parsear el texto como JSON
         return {"data":JSON.loads(text)} 
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error processing file: {e}")
