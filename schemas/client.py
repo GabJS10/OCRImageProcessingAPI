@@ -1,16 +1,17 @@
 from pydantic import BaseModel, Field, EmailStr, field_validator 
-from typing import Optional
+from typing import Optional,Literal
 
 class Client(BaseModel):
     nombre: str
-    cedula: str = Field(..., max_length=10, min_length=8,description="Cedula de 10 digitos")
+    cedula: str = Field(..., max_length=10, min_length=5,description="Cedula de 10 digitos")
     lugar_cedula: str
+    direccion: Optional[str] = None
     telefono: Optional[str] = None
     correo: Optional[EmailStr] = None
     estado_civil: Optional[str] = None
     tipo_poblacion: Optional[str] = None
     nivel_escolaridad: Optional[str] = None
-
+    nacionalidad: Literal["venezuela", "colombia"]
     @field_validator('telefono')
     def validate_telefono(cls, v):
         if v is None:

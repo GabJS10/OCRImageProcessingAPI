@@ -15,7 +15,7 @@ router = APIRouter(
 async def download_data_in_excel():
   try:
     res = (supabase
-      .table("clients").select("nombre,cedula,lugar_cedula,telefono,correo,estado_civil,tipo_poblacion,nivel_escolaridad")
+      .table("clients").select("nombre,cedula,lugar_cedula,direccion,telefono,correo,estado_civil,tipo_poblacion,nivel_escolaridad")
       .execute())
     
     data = res.data

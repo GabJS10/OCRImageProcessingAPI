@@ -40,6 +40,7 @@ async def upload(file: UploadFile = File(...)):
                 "nombre": "Juan Perez",
                 "cedula": "123456789",
                 "lugar_cedula": "Bogota",
+                "direccion": "Calle 123",
                 "telefono": "3001234567",
                 "correo": " H9T9K@example.com",
                 "estado_civil": "soltero",

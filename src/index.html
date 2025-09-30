@@ -91,6 +91,9 @@
         <label for="lugar_cedula">Lugar de cédula</label>
         <input type="text" id="lugar_cedula" name="lugar_cedula" required />
 
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" />
+
         <label for="telefono">Teléfono</label>
         <input type="text" id="telefono" name="telefono" />
 
@@ -105,6 +108,13 @@
 
         <label for="nivel_escolaridad">Nivel de escolaridad</label>
         <input type="text" id="nivel_escolaridad" name="nivel_escolaridad" />
+
+        <!-- Input select (venezuela o colombia) por defecto colombia -->
+        <label for="nacionalidad">Nacionalidad</label>
+        <select id="nacionalidad" name="nacionalidad" required>
+          <option value="colombia">Colombia</option>
+          <option value="venezuela">Venezuela</option>
+        </select>
 
         <button type="submit">Enviar</button>
       </form>
@@ -163,6 +173,7 @@
           document.getElementById("cedula").value = data.cedula || "";
           document.getElementById("lugar_cedula").value =
             data.lugar_cedula || "";
+          document.getElementById("direccion").value = data.direccion || "";
           document.getElementById("telefono").value = data.telefono || "";
           document.getElementById("correo").value = data.correo || "";
           document.getElementById("estado_civil").value =
@@ -185,9 +196,11 @@
           nombre: document.getElementById("nombre").value,
           cedula: document.getElementById("cedula").value,
           lugar_cedula: document.getElementById("lugar_cedula").value,
+          direccion: document.getElementById("direccion").value,
           estado_civil: document.getElementById("estado_civil").value,
           tipo_poblacion: document.getElementById("tipo_poblacion").value,
           nivel_escolaridad: document.getElementById("nivel_escolaridad").value,
+          nacionalidad: document.getElementById("nacionalidad").value,
         };
 
         if (document.getElementById("correo").value) {
